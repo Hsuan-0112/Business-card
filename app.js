@@ -33,7 +33,7 @@ onAuthStateChanged(auth, user => {
     $("loginBtn").classList.add("hidden");
     $("logoutBtn").classList.remove("hidden");
     $("userInfo").textContent = user.email || "已登入";
-    if (isMobile()) $("mobileEditor").classList.remove("hidden");
+    $("mobileEditor").classList.remove("hidden");
     startListening();
   } else {
     $("loginBtn").classList.remove("hidden");
