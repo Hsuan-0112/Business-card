@@ -63,7 +63,7 @@ function renderContacts(){
   if (!currentUser) { $("contactList").innerHTML = "<p>請先登入。</p>"; return; }
   if (!list.length) { $("contactList").innerHTML = "<p>目前沒有資料。</p>"; return; }
 
-  $("contactList").innerHTML = list.map(c => `
+    $("contactList").innerHTML = list.map(c => `
     <div class="card">
       <h3>${esc(c.name || "未命名")}</h3>
       <p class="small">${esc(c.company || "")}｜${esc(c.title || "")}</p>
@@ -78,6 +78,8 @@ function renderContacts(){
         <button onclick="window.editContact('${c.id}')">編輯</button>
         <button class="danger" onclick="window.deleteContact('${c.id}')">刪除</button>
       </div>
+    </div>
+  `).join("");
 }
 
 window.editContact = id => {
