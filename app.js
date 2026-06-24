@@ -74,8 +74,10 @@ function renderContacts(){
       <p>分類：${esc(c.category || "")}</p>
       <p>標籤：${esc(c.tags || "")}</p>
       <p>備註：${esc(c.note || "")}</p>
-      ${isMobile()?`<div class="actions"><button onclick="window.editContact('${c.id}')">編輯</button><button class="danger" onclick="window.deleteContact('${c.id}')">刪除</button></div>`:""}
-    </div>`).join("");
+      <div class="actions">
+        <button onclick="window.editContact('${c.id}')">編輯</button>
+        <button class="danger" onclick="window.deleteContact('${c.id}')">刪除</button>
+      </div>
 }
 
 window.editContact = id => {
