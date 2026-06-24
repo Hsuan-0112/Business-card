@@ -81,7 +81,7 @@ function renderContacts(){
 window.editContact = id => {
   const c = contacts.find(x=>x.id===id); if(!c) return;
   $("editingId").value = id;
-  ["name","company","title","phone","email","address","website","category","tags","note"].forEach(k => $(k).value = c[k] || "");
+  ["name","company","title","mobile","phone","email","address","website","category","tags","note"].forEach(k => $(k).value = c[k] || "");
   $("lineId").value = c.lineId || "";
   $("formTitle").textContent = "編輯名片";
   scrollTo({top:0, behavior:"smooth"});
