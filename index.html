@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>名片管理系統</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+</head>
+<body>
+<header>
+  <h1>名片管理系統</h1>
+  <div>
+    <button id="loginBtn">Google 登入</button>
+    <button id="logoutBtn" class="hidden">登出</button>
+    <span id="userInfo"></span>
+  </div>
+</header>
+
+<main>
+  <section class="panel">
+    <h2>查詢名片</h2>
+    <input id="searchInput" placeholder="搜尋姓名、公司、電話、Email、標籤">
+    <div id="contactList" class="cards"></div>
+  </section>
+
+  <section id="mobileEditor" class="panel hidden">
+    <h2 id="formTitle">手機新增 / 編輯名片</h2>
+    <div class="ocrBox">
+      <label>上傳名片圖片 OCR</label>
+      <input id="imageInput" type="file" accept="image/*">
+      <button id="ocrBtn">開始 OCR</button>
+      <p id="ocrStatus"></p>
+      <textarea id="ocrText" rows="6" placeholder="OCR結果，也可以手動貼上文字"></textarea>
+      <button id="parseBtn">整理欄位</button>
+    </div>
+
+    <form id="cardForm">
+      <input type="hidden" id="editingId">
+      <label>姓名</label><input id="name">
+      <label>公司</label><input id="company">
+      <label>職稱</label><input id="title">
+      <label>電話</label><input id="phone">
+      <label>Email</label><input id="email">
+      <label>地址</label><input id="address">
+      <label>網站</label><input id="website">
+      <label>LINE ID</label><input id="lineId">
+      <label>分類</label><input id="category" placeholder="客戶、廠商、合作夥伴">
+      <label>標籤</label><input id="tags" placeholder="VIP、台北、科技業">
+      <label>備註</label><textarea id="note" rows="3"></textarea>
+      <button type="submit">儲存</button>
+      <button type="button" id="clearBtn">清空</button>
+    </form>
+  </section>
+
+  <section id="desktopNotice" class="notice">
+    電腦版目前設定為查詢用；新增與 OCR 請用手機開啟。
+  </section>
+</main>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>
