@@ -26,6 +26,46 @@ $("loginBtn").onclick = () => signInWithPopup(auth, provider);
 $("logoutBtn").onclick = () => signOut(auth);
 $("searchInput").addEventListener("input", renderContacts);
 $("clearBtn").onclick = clearForm;
+$("exportBtn").onclick = () => {
+  if (!contacts.length) {
+    alert("目前沒有資料可匯出");
+    return;
+  }
+
+  const headers = ["姓名","公司","職稱","手機","電話","Email","地址","網站","LINE ID","分類","標籤","備註"];
+
+  const rows = contacts.map(c => [
+    c.name || "",
+    c.company || "",
+    c.title || "",
+    c.mobile || "",
+    c.phone || "",
+    c.email || "",
+    c.address || "",
+    c.website || "",
+    c.lineId || "",
+    c.category || "",
+    c.tags || "",
+    c.note || ""
+  ]);
+
+  const csv = [headers, ...rows]
+    .map(row => row.map(v => `"${String(v).replaceAll('"','""')}"`).join(","))
+    .join("\n");
+
+  const blob = new Blob(["\ufeff" + csv], {
+    type: "text/csv;charset=utf-8;"
+  });
+
+  const url = URL.createObjectURL(blob);
+
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "名片資料.csv";
+  a.click();
+
+  URL.revokeObjectURL(url);
+};
 
 onAuthStateChanged(auth, user => {
   currentUser = user;
