@@ -78,6 +78,8 @@ function renderContacts(){
         <button onclick="window.editContact('${c.id}')">編輯</button>
         <button class="danger" onclick="window.deleteContact('${c.id}')">刪除</button>
       </div>
+    </div>
+  `).join("");
 }
 
 window.editContact = id => {
