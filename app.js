@@ -4,12 +4,12 @@ import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChang
 
 /* 到 Firebase 專案設定複製 config 後，貼到這裡 */
 const firebaseConfig = {
-  apiKey: "PASTE_YOUR_API_KEY",
-  authDomain: "PASTE_YOUR_PROJECT.firebaseapp.com",
-  projectId: "PASTE_YOUR_PROJECT_ID",
-  storageBucket: "PASTE_YOUR_PROJECT.appspot.com",
-  messagingSenderId: "PASTE_YOUR_SENDER_ID",
-  appId: "PASTE_YOUR_APP_ID"
+  apiKey: "AIzaSyBa0cU92Zw_r6VScI11azqR5OymqmWuHRw",
+  authDomain: "business-card-ed16e.firebaseapp.com",
+  projectId: "business-card-ed16e",
+  storageBucket: "business-card-ed16e.firebasestorage.app",
+  messagingSenderId: "343681889137",
+  appId: "1:343681889137:web:4e0bf39f76def3db8d3cd0"
 };
 
 const app = initializeApp(firebaseConfig);
