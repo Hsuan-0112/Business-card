@@ -57,7 +57,7 @@ function startListening(){
 function renderContacts(){
   const kw = $("searchInput").value.trim().toLowerCase();
   const list = contacts.filter(c => [
-    c.name,c.company,c.title,c.phone,c.email,c.address,c.website,c.lineId,c.category,c.tags,c.note
+    c.name,c.company,c.title,c.mobile,c.phone,c.email,c.address,c.website,c.lineId,c.category,c.tags,c.note
   ].join(" ").toLowerCase().includes(kw));
 
   if (!currentUser) { $("contactList").innerHTML = "<p>請先登入。</p>"; return; }
@@ -67,6 +67,7 @@ function renderContacts(){
     <div class="card">
       <h3>${esc(c.name || "未命名")}</h3>
       <p class="small">${esc(c.company || "")}｜${esc(c.title || "")}</p>
+      <p>手機：${esc(c.mobile || "")}</p>
       <p>電話：${esc(c.phone || "")}</p>
       <p>Email：${esc(c.email || "")}</p>
       <p>地址：${esc(c.address || "")}</p>
@@ -95,7 +96,7 @@ $("cardForm").addEventListener("submit", async e => {
   if (!currentUser) return alert("請先登入");
   const data = {
     name:$("name").value.trim(), company:$("company").value.trim(), title:$("title").value.trim(),
-    phone:$("phone").value.trim(), email:$("email").value.trim(), address:$("address").value.trim(),
+    mobile: $("mobile").value.trim(),phone:$("phone").value.trim(), email:$("email").value.trim(), address:$("address").value.trim(),
     website:$("website").value.trim(), lineId:$("lineId").value.trim(), category:$("category").value.trim(),
     tags:$("tags").value.trim(), note:$("note").value.trim(),
     updatedAt:serverTimestamp(), updatedBy:currentUser.email || ""
