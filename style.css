@@ -9,5 +9,11 @@ button.danger{background:#dc2626}.cards{display:grid;grid-template-columns:repea
 .card{background:#f9fafb;border:1px solid #e5e7eb;border-radius:12px;padding:16px}.card h3{margin:0 0 8px}.card p{margin:6px 0}.small{color:#666;font-size:14px}
 .actions{display:flex;flex-wrap:wrap;gap:8px}.ocrBox{border:1px dashed #cbd5e1;border-radius:12px;padding:16px;margin-bottom:18px;background:#f8fafc}
 #ocrStatus{color:#2563eb;font-weight:700}
-@media(min-width:768px){#mobileEditor{display:none!important}}
-@media(max-width:767px){#desktopNotice{display:none!important}}
+@media(min-width:768px){
+  .ocrBox{display:none!important}
+  #desktopNotice{display:none!important}
+}
+
+@media(max-width:767px){
+  #desktopNotice{display:none!important}
+}
