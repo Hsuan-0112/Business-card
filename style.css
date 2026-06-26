@@ -17,3 +17,19 @@ button.danger{background:#dc2626}.cards{display:grid;grid-template-columns:repea
 @media(max-width:767px){
   #desktopNotice{display:none!important}
 }
+.floatBtns{
+  position:fixed;
+  right:18px;
+  bottom:18px;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  z-index:999;
+}
+
+.floatBtns button{
+  width:44px;
+  height:44px;
+  border-radius:50%;
+  font-size:20px;
+}
