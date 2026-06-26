@@ -26,6 +26,13 @@ $("loginBtn").onclick = () => signInWithPopup(auth, provider);
 $("logoutBtn").onclick = () => signOut(auth);
 $("searchInput").addEventListener("input", renderContacts);
 $("clearBtn").onclick = clearForm;
+$("topBtn").onclick = () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+};
+
+$("bottomBtn").onclick = () => {
+  window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+};
 $("exportBtn").onclick = () => {
   if (!contacts.length) {
     alert("目前沒有資料可匯出");
